@@ -1,0 +1,57 @@
+Bluethooth module controlled home automation
+ Components:
+1.	Arduino UNO
+2.	Relay
+3.	Breadboard
+4.	Jumper  Wire
+5.	UNO cable
+6.	Bulb Holder
+7.	One  Bulb
+CONNECTION:
+
+A) Connections between Bluetooth Module and Arduino
+•	+5V(Arduino) to +5V(Bluetooth)
+•	GND(Arduino) to GND(Bluetooth)
+•	RX(Arduino) to TX(Bluetooth)
+•	TX(Arduino) to RX(Bluetooth)
+•	
+B) Connections between Relay and Arduino
+
+•	+5V(Arduino) to VCC(Relay)
+•	GND(Arduino) to GND(Relay)
+•	Digital Pin 8(Arduino) to IN1(Relay)
+•	
+C) Connections between Relay, Switch board and Bulb
+
+•	NO(Normally Open) pin(Relay) to Bulb-1
+•	GND(Bulb-1) to GND(AC Supply - Negative Terminal)
+•	Switch Board(Switch-2) to AC Supply - Positive Terminal
+
+CODE
+int input=8;
+ 
+
+void setup() {
+ pinMode(input, OUTPUT);
+
+ Serial.begin(9600);
+ }
+ 
+void loop() {
+  
+ if(Serial.available()>0)
+   {     
+      char data= Serial.read(); 
+      switch(data)
+      {
+        case 'a': digitalWrite(input, HIGH);
+        break;
+        
+        case 'b': digitalWrite(input, LOW);
+        break;
+        default : break;
+      }
+      Serial.println(data);
+   }
+   delay(50);
+}

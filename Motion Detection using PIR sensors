@@ -1,0 +1,36 @@
+COMPONENTS:
+1.	PIR SENSOR
+2.	BUZZER
+3.	LED
+4.	330 Ohm resistor
+5.	Arduino UNO
+6.	UNO cable
+
+
+MOTION DETECTION USING PIR SENSOR
+CODE
+void setup() {
+  // put your setup code here, to run once:
+pinMode(2,INPUT); //PIR is an input 
+pinMode(3,OUTPUT); //BUZZER/Led will give output
+Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+int a=digitalRead(2);
+Serial.println(a);
+if(a==0)
+{
+  digitalWrite(3,LOW);
+}
+if(a==1)
+{
+  digitalWrite(3,HIGH); 
+}}
+
+
+
+
+
+

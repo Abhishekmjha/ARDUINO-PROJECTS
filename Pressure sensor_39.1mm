@@ -1,0 +1,43 @@
+PRESSURE MEASUREMENT SYSTEM
+Components:
+1.	Force Sensor
+2.	10k Resistor
+3.	Arduino UNO
+4.	Arduino cable
+5.	Jumper wires
+
+
+Connections of Arduino to force sensors:
+•	(+) pin of sensor to 5v Arduino
+•	(-)pin of sensor to 10k resistor and other pin of resistor to GND of Arduino
+•	(-)pin of sensor to A0 of Arduino
+•	Give power supply through Arduino with help of UNO Cable
+
+CODE
+int fsrPin = A0;     // the FSR and 10K pulldown are connected to a0
+int fsrReading;     // the analog reading from the FSR resistor divider
+ 
+void setup(void) {
+  Serial.begin(9600);   
+}
+ 
+void loop(void) {
+  fsrReading = analogRead(fsrPin);  
+ 
+  Serial.print("Analog reading = ");
+  Serial.println(fsrReading);     // print the raw analog reading
+ 
+  if (fsrReading <700) {           // The Values will vary according to you  force sensor
+   Serial.println(" - No pressure");
+ } else if (fsrReading < 750) {
+   Serial.println(" -  Light squeeze");
+  } else if (fsrReading < 800) {
+    Serial.println(" - Medium squeeze");
+  } else 
+    Serial.println(" - Big squeeze");
+  delay(1000);
+}
+
+NOTE : The reading value will vary according your sensor. I have took this reading according to my sensor.
+Circuit image
+ 

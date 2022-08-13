@@ -1,5 +1,5 @@
-  const int pingTrigPin = 12; //Trigger connected to PIN 7   
-  const int pingEchoPin = 10; //Echo connected yo PIN 8   
+  const int pingTrigPin = 12; //Trigger connected to PIN 12   
+  const int pingEchoPin = 10; //Echo connected yo PIN 10   
   int buz=5; //Buzzer to PIN 5   
   void setup() {   
   Serial.begin(9600);   
